@@ -12,6 +12,8 @@ class Tables {
       pet varchar(20),
       service varchar(20) NOT NULL,
       status varchar(20) NOT NULL,
+      scheduled_at timestamp NOT NULL,
+      created_at timestamp NOT NULL,
       obs text,
       PRIMARY KEY(id)
     )`;
