@@ -1,17 +1,17 @@
 const customExpress = require('./configs/customExpress');
-const connection = require('./infraestructure/connection');
-const Tables = require('./infraestructure/tables.js');
+const connection = require('./infrastructure/connection');
+const Tables = require('./infrastructure/tables.js');
 
 connection.connect(error => {
   if(error) {
     console.log('Error on connect with database');
     console.error(error);
   } else {
-    console.log('Connection with database stablished with success');
+    console.log('Connection with database established with success');
     Tables.init(connection);
 
     const app = customExpress();
-    app.listen(3000, () => console.log('Servidor rodando na porta 3000'));
+    app.listen(3000, () => console.log('Server running on port 3000'));
   }
 });
 
