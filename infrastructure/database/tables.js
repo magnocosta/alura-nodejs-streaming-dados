@@ -3,6 +3,7 @@ class Tables {
   init(connection) {
     this.connection = connection;
     this.createTableTreatment();
+    this.createTablePet();
   }
 
   createTableTreatment() {
@@ -20,9 +21,26 @@ class Tables {
 
     this.connection.query(sql, (error) => {
       if (error) {
-        console.log(error);
+        console.error(error);
       } else {
         console.log('Table treatment was created with success');
+      }
+    });
+  }
+
+  createTablePet() {
+    const sql = `CREATE TABLE IF NOT EXISTS pets (
+      id int NOT NULL AUTO_INCREMENT,
+      name VARCHAR(50),
+      image VARCHAR(255),
+      PRIMARY KEY (id)
+    )`;
+
+    this.connection.query(sql, error => {
+      if (error) {
+        console.error(error);
+      } else {
+        console.log('Table pets was created with success');
       }
     });
   }
